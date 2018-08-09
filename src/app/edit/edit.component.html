@@ -1,0 +1,108 @@
+<div class="card">
+    <div class="card-body">
+        <h1>Edit Prescription Form</h1>
+        <form [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">Rx #</label>
+                <input type="text" class="form-control" formControlName = "rx" name = "rx" #rx
+                />
+            </div>           
+            <div *ngIf="angForm.controls['rx'].invalid && (angForm.controls['rx'].dirty || 
+                    angForm.controls['rx'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['rx'].errors.required">
+                 Rx # is required.
+                </div>
+            </div> 
+
+            <div class="form-group">
+                <label class="col-md-4">Name</label>
+                <input type="text" class="form-control" formControlName = "name" name = "name" #name
+                />
+            </div>
+            <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || 
+                    angForm.controls['name'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['name'].errors.required">
+                 Name of medication is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Dosage</label>
+                <input type="text" class="form-control" formControlName = "dosage" name = "dosage" #dosage
+                />
+            </div>
+            <div *ngIf="angForm.controls['dosage'].invalid && (angForm.controls['dosage'].dirty || 
+                    angForm.controls['dosage'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['dosage'].errors.required">
+                 Dosage is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Quantity</label>
+                <input type="text" class="form-control" formControlName = "quantity" name = "quantity" #quantity
+                />
+            </div>
+            <div *ngIf="angForm.controls['quantity'].invalid && (angForm.controls['quantity'].dirty || 
+                    angForm.controls['quantity'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['quantity'].errors.required">
+                 Quantity is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Vendor</label>
+                <input type="text" class="form-control" formControlName = "vendor" name = "vendor" #vendor
+                />
+            </div>
+            <div *ngIf="angForm.controls['vendor'].invalid && (angForm.controls['vendor'].dirty || 
+                    angForm.controls['vendor'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['vendor'].errors.required">
+                 Vendor is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Price</label>
+                <input type="number" class="form-control" formControlName = "price" name = "price" #price
+                />
+            </div>
+            <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || 
+                    angForm.controls['price'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['price'].errors.required">
+                 Price is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Next Refill</label>
+                <input type="date" class="form-control" formControlName = "refill" name = "refill" #refill
+                />
+            </div>
+            <div *ngIf="angForm.controls['refill'].invalid && (angForm.controls['refill'].dirty || 
+                    angForm.controls['refill'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['refill'].errors.required">
+                 Dosage is required.
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label class="col-md-4">Medication Guide</label>
+                <input type="url" class="form-control" formControlName = "url" name = "url" #url
+                /> 
+                Add WebMD Medication Guide URL: <a href="https://www.webmd.com/drugs/2/index" target="_blank">WebMD</a>
+            </div>
+            <div *ngIf="angForm.controls['url'].invalid && (angForm.controls['url'].dirty || 
+                    angForm.controls['url'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['date'].errors.required">
+                 Dosage is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" (click)="updatePrescription(angForm.controls['rx'].value, angForm.controls['name'].value, angForm.controls['dosage'].value, angForm.controls['quantity'].value, angForm.controls['vendor'].value, angForm.controls['price'].value, angForm.controls['refill'].value, angForm.controls['url'].value)" 
+                [disabled]="angForm.invalid" class="btn btn-primary">Update Prescription</button>
+            </div>
+        </form>
+    </div>
+</div>
