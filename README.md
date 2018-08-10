@@ -1,5 +1,13 @@
-<<<<<<< HEAD
+
 # MyPrescriptions
+  ## Website: https://coleac.github.io/my-prescriptions/dist/my-prescriptions/index
+  
+  ###To Do List
+  
+    #### -Add User Account
+    #### -Format Date
+    
+    
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
