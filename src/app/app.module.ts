@@ -38,8 +38,8 @@ const routes: Routes = [
     FormsModule,
     DataTablesModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
-    SlimLoadingBarModule,
+    RouterModule.forRoot(routes, {useHash:true}),
+    SlimLoadingBarModule.forRoot()
   ],
 
   declarations: [

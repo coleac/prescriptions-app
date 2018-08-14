@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class DataService {
 
-  prescriptionsUrl = 'http://localhost:3000/prescriptions';
+  prescriptionsUrl = 'http://ec2-52-36-5-209.us-west-2.compute.amazonaws.com:3000/prescriptions';
 
   constructor(
     private _http: HttpClient) { }

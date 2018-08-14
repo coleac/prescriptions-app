@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Prescription } from '../prescriptions';
