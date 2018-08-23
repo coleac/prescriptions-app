@@ -4,10 +4,10 @@
   
   ### To Do List
   
-    * Add User Accounts
-    * Format Table Date
-    * SSH
-    * Table Http Links
+    [x] Add User Accounts
+    [ ] Format Table Date
+    [ ] SSH
+    [ ] Table Http Links
     
     
 
