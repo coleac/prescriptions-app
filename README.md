@@ -2,6 +2,11 @@
   ## A MEAN Project
   ## Website: http://ec2-54-213-81-152.us-west-2.compute.amazonaws.com/#/
   
+  ## Login:
+   ### *email:* test@gmail.com *pw:* test123
+   ### *email:* test2@gmail.com *pw:* test456
+
+  
   ### To Do List
   
     [x] Add User Accounts
