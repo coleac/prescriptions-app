@@ -1,6 +1,6 @@
 # MyPrescriptions
   ## A MEAN Project
-  ## Website: http://ec2-54-213-81-152.us-west-2.compute.amazonaws.com/#/
+  ## Website: https://coleac.github.io/prescriptions-tracker
   
   ## Login:
    ### *email:* test@gmail.com *pw:* test123
@@ -11,7 +11,7 @@
   
     [x] Add User Accounts
     [ ] Format Table Date
-    [ ] SSH
+    [x] SSH
     [ ] Table Http Links
     
     
@@ -21,3 +21,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 #### Credits:
 #### https://www.youtube.com/watch?v=Tw-rskOmcMM
 #### https://appdividend.com/2018/01/21/angular-5-crud-tutorial-example-scratch/
+#### https://angular-templates.io/tutorials/about/firebase-authentication-with-angular
+
