@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { DataService } from '../data.service'
+import { ActivatedRoute } from '@angular/router';
+import { FirebaseUserModel } from '../core/user.model';
+
 
 @Component({
   selector: 'app-prescription-form',
@@ -10,7 +13,14 @@ import { DataService } from '../data.service'
 export class PrescriptionFormComponent implements OnInit{
   angForm: FormGroup;
 
-  constructor(private dataService: DataService, private fb: FormBuilder) {
+  user: FirebaseUserModel = new FirebaseUserModel();
+
+  constructor(
+    private dataService: DataService, 
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+  ) 
+  {
     this.prescriptionForm();
   }
 
@@ -27,11 +37,16 @@ export class PrescriptionFormComponent implements OnInit{
     });
   }
 
-  addPrescription(rx, name, dosage, quantity, vendor, price, refill, url) {
-    this.dataService.addPrescription(rx, name, dosage, quantity, vendor, price, refill, url);
+  addPrescription(email, rx, name, dosage, quantity, vendor, price, refill, url) {
+    this.dataService.addPrescription(email, rx, name, dosage, quantity, vendor, price, refill, url);
   }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+    this.route.data.subscribe(routeData => {
+      let data = routeData['data'];
+      if (data) {
+        this.user = data;
+      }
+    })
   }
 }

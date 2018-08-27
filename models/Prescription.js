@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 /* Define collection and schema for Prescription */
 let Prescription = new Schema({
+    email: {
+        type: String
+    },
     rx: {
         type: String
     },
@@ -28,7 +31,8 @@ let Prescription = new Schema({
         type: String
     }
 },{
-    collection: 'Current Prescriptions'
+    //collection: 'Current Prescriptions'
+    collection: 'User Prescriptions'
 });
 
 module.exports = mongoose.model('Prescription', Prescription)

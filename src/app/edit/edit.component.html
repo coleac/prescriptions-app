@@ -100,7 +100,7 @@
             </div>
 
             <div class="form-group">
-                <button type="button" (click)="updatePrescription(angForm.controls['rx'].value, angForm.controls['name'].value, angForm.controls['dosage'].value, angForm.controls['quantity'].value, angForm.controls['vendor'].value, angForm.controls['price'].value, angForm.controls['refill'].value, angForm.controls['url'].value)" 
+                <button type="button" (click)="updatePrescription(user.email, angForm.controls['rx'].value, angForm.controls['name'].value, angForm.controls['dosage'].value, angForm.controls['quantity'].value, angForm.controls['vendor'].value, angForm.controls['price'].value, angForm.controls['refill'].value, angForm.controls['url'].value)" 
                 [disabled]="angForm.invalid" class="btn btn-primary">Update Prescription</button>
             </div>
         </form>

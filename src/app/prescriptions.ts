@@ -1,6 +1,7 @@
 export interface Prescription {
     id: Number;
-    rx: String,
+    email: String;
+    rx: String;
     name: String;
     dosage: String;
     quantity: Number;

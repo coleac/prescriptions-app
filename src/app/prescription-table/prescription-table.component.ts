@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Prescription } from  '../prescriptions'
+import { Prescription } from  '../prescriptions';
+import { ActivatedRoute } from '@angular/router';
+import { FirebaseUserModel } from '../core/user.model';
 import { formatDate } from '@angular/common';
 import * as moment from 'moment';
 
@@ -14,7 +16,9 @@ import * as moment from 'moment';
 export class PrescriptionTableComponent implements OnInit {
   prescriptions: Prescription[];
 
-  constructor(private dataService: DataService,) {}
+  user: FirebaseUserModel = new FirebaseUserModel();
+
+  constructor(private dataService: DataService, private route: ActivatedRoute,) {}
 
 
   transformDate(date) {
@@ -22,10 +26,18 @@ export class PrescriptionTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(routeData => {
+      let data1 = routeData['data'];
+      if (data1) {
+        this.user = data1;
+      }
+    })
     this.dataService
-      .getPrescriptions()
+      .getPrescriptions(this.user.email)
       .subscribe((data: Prescription[]) => {
       this.prescriptions = data;
+
+      
 
       /*
       var num: number = this.prescriptions.length;
@@ -53,13 +65,16 @@ export class PrescriptionTableComponent implements OnInit {
         
         
       });
+      
+    
+      
   }
 
   deletePrescription(id) {
     this.dataService.deletePrescription(id).subscribe(res => {
       console.log('Deleted');
       this.dataService
-      .getPrescriptions()
+      .getPrescriptions(this.user.email)
       .subscribe((data: Prescription[]) => {
       this.prescriptions = data;
       });

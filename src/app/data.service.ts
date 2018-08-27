@@ -3,15 +3,16 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
-
-  prescriptionsUrl = 'http://ec2-52-36-5-209.us-west-2.compute.amazonaws.com:3000/prescriptions';
+  
+  prescriptionsUrl = 'https://ancient-dawn-12248.herokuapp.com/prescriptions';
 
   constructor(
     private _http: HttpClient) { }
   
 
-  addPrescription(rx, name, dosage, quantity, vendor, price, refill, url) {
+  addPrescription(email, rx, name, dosage, quantity, vendor, price, refill, url) {
     const formObj = {
+      email: email,
       rx: rx,
       name: name,
       dosage: dosage,
@@ -25,10 +26,10 @@ export class DataService {
       .subscribe(res => console.log('Done'));
   }
 
-  getPrescriptions() {
+  getPrescriptions(email) {
     return this
       ._http
-      .get(`${this.prescriptionsUrl}`);
+      .get(`${this.prescriptionsUrl}/user/${email}`);
   }
 
   editPrescription(id) {
@@ -37,8 +38,9 @@ export class DataService {
       .get(`${this.prescriptionsUrl}/edit/${id}`);
   }
 
-  updatePrescription(rx, name, dosage, quantity, vendor, price, refill, url, id) {
+  updatePrescription(email, rx, name, dosage, quantity, vendor, price, refill, url, id) {
     const obj = {
+      email: email,
       rx: rx,
       name: name,
       dosage: dosage,

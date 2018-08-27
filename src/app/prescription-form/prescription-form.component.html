@@ -97,9 +97,8 @@
                  Medication Guide URL is required.
                 </div>
             </div>
-
             <div class="form-group">
-                <button type="button" (click)="addPrescription(angForm.controls['rx'].value, angForm.controls['name'].value, angForm.controls['dosage'].value, angForm.controls['quantity'].value, angForm.controls['vendor'].value, angForm.controls['price'].value, angForm.controls['refill'].value, angForm.controls['url'].value); angForm.reset()" [disabled]="! angForm.valid" class="btn btn-primary">Add Prescription</button>
+                <button type="button" (click)="addPrescription(user.email, angForm.controls['rx'].value, angForm.controls['name'].value, angForm.controls['dosage'].value, angForm.controls['quantity'].value, angForm.controls['vendor'].value, angForm.controls['price'].value, angForm.controls['refill'].value, angForm.controls['url'].value); angForm.reset()" [disabled]="! angForm.valid" class="btn btn-primary">Add Prescription</button>
             </div>
         </form>
     </div>

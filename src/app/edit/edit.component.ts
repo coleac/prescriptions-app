@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Prescription } from '../prescriptions';
 import { DataService } from '../data.service';
 import { formatDate } from '@angular/common';
+import { FirebaseUserModel } from '../core/user.model';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+
+  user: FirebaseUserModel = new FirebaseUserModel();
 
   prescriptions: Prescription[];
   prescription: any = {};
@@ -39,6 +42,13 @@ export class EditComponent implements OnInit {
     }
 
     ngOnInit() {
+      this.route.data.subscribe(routeData => {
+        let data = routeData['data'];
+        if (data) {
+          this.user = data;
+          this.createForm(this.user.name);
+        }
+      })
       this.getPrescription();
     }
 
@@ -87,12 +97,12 @@ export class EditComponent implements OnInit {
      
     }
     
-    updatePrescription(rx, name, dosage, quantity, vendor, price, refill, url) {
+    updatePrescription(email, rx, name, dosage, quantity, vendor, price, refill, url) {
       this.route.params.subscribe(params => {
-        this.dataService.updatePrescription(rx, name, dosage, quantity, vendor, price, refill, url, params['id']);
+        this.dataService.updatePrescription(email, rx, name, dosage, quantity, vendor, price, refill, url, params['id']);
         
       setTimeout(() => {this.dataService
-        .getPrescriptions()
+        .getPrescriptions(this.user.email)
         .subscribe((data: Prescription[]) => {
         this.prescriptions = data;})}, 1000)
 

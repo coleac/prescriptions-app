@@ -17,8 +17,9 @@ prescriptionRoutes.route('/add/').post(function (req, res) {
 });
 
 /* Defined get data route */
-prescriptionRoutes.route('/').get(function (req, res) {
-    Prescription.find(function (err, prescriptions){
+prescriptionRoutes.route('/user/:email').get(function (req, res) {
+    let _email = req.params.email;
+    Prescription.find({ email: _email }, function (err, prescriptions){
     if(err){
       console.log(err);
     }
