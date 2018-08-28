@@ -30,26 +30,7 @@ import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
 import { rootRouterConfig } from './app.routes';
 import { HeaderComponent } from './header/header.component';
-//import { routes } from './app.routes';
-
-/*
-const routes: Routes = [
-  {
-    path: 'create',
-    component: PrescriptionFormComponent,
-    canActivate: [AuthGuard] 
-  },
-  {
-    path: 'edit/:id',
-    component: EditComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'index',
-    component: PrescriptionTableComponent,
-    canActivate: [AuthGuard]
-  }
-];*/
+import { DatePipe, CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -76,10 +57,10 @@ const routes: Routes = [
     RegisterComponent,
     UserComponent,
     LoginComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   
-  providers: [DataService, AuthService, UserService, AuthGuard, UserResolver, PrescriptionFormResolver, PrescriptionTableResolver, EditResolver],
+  providers: [DataService, AuthService, UserService, AuthGuard, UserResolver, PrescriptionFormResolver, PrescriptionTableResolver, EditResolver, DatePipe, CurrencyPipe, DecimalPipe, PercentPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

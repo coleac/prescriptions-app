@@ -1,3 +1,26 @@
 div.DTE_Form_Info {
     text-align: left;
 }
+
+.url {
+    text-decoration-line: underline;
+}
+
+#p2 {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    font-size: 80%;
+    color: blue;
+}
+
+#p1 {
+    margin: 0;
+    padding: 0;
+}
+
+@media print {
+    .example-screen {
+        display: none;
+     }
+ }

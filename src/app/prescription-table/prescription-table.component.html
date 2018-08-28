@@ -1,4 +1,3 @@
-
 <div class="container">
   <table id="ptable" class="table table-striped">
         <thead>
@@ -10,7 +9,10 @@
             <th style="width: 10%">Vendor</th>
             <th style="width: 5%">Price</th>
             <th style="width: 10%">Next Refill</th>
-            <th style="width: 20%">Medication Guide</th>
+            <th style="width: 20%"><p id="p1">Medication Guide</p><p id="p2">Click link for medication details on WebMD.</p></th>   
+            <div class="example-screen">
+                <th style="width: 20%"><button  type="button" onClick="window.print()" class="btn btn-info">Print Table</button></th>
+            </div>
           </tr>
         </thead>
         <tbody>
@@ -20,11 +22,13 @@
             <td>{{ prescription.dosage }}</td>
             <td>{{ prescription.quantity }}</td>
             <td>{{ prescription.vendor }}</td>
-            <td>{{ prescription.price }}</td>
-            <td>{{ prescription.refill }}</td>
-            <td>{{ prescription.url }}</td>
-            <td style="width: 10%"><a [routerLink]="['/edit/', prescription._id]" class="btn btn-primary">Edit</a></td>
-            <td style="width: 10%"><button type="button" (click) ="deletePrescription(prescription._id)" class="btn btn-danger">Delete</button></td>
+            <td>{{ prescription.price | currency }}</td>
+            <td>{{ prescription.refill | date:'shortDate' }}</td>
+            <td (click)="webMD(prescription.url)" class="url">{{ prescription.url }}</td>
+            <div class= "example-screen">
+              <td style="width: 10%"><a [routerLink]="['/edit/', prescription._id]" class="btn btn-primary">Edit</a></td>
+              <td style="width: 10%"><button type="button" (click) ="deletePrescription(prescription._id)" class="btn btn-danger">Delete</button></td>
+            </div>
           </tr>
         </tbody>
   </table>
