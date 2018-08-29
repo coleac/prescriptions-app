@@ -15,24 +15,9 @@ import { DatePipe, CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/commo
 
 export class PrescriptionTableComponent implements OnInit {
   prescriptions: Prescription[];
-
-  refillDue(refill) {
-    let refill1 = Date.parse(refill);
-    console.log(refill);
-    let pipe = new DatePipe('en-US');
-    let now = Date.now()
-    console.log(now);
-    let today = pipe.transform(now, 'shortDate');
-    let refill2 = Date.parse(today);
-
-    if(refill1 >= refill2){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
-
+  loading = false;
+  today= Date.parse(new DatePipe('en-US').transform(Date.now(), 'shortDate'));
+  
 
   user: FirebaseUserModel = new FirebaseUserModel();
 
@@ -43,15 +28,18 @@ export class PrescriptionTableComponent implements OnInit {
 
 
   ngOnInit() {
+    this.loading = true;
     this.route.data.subscribe(routeData => {
       let data1 = routeData['data'];
       if (data1) {
         this.user = data1;
       }
     })
+  
     this.dataService
       .getPrescriptions(this.user.email)
       .subscribe((data: Prescription[]) => {
+        this.loading = false;
       this.prescriptions = data;  
     })    
   }
@@ -70,4 +58,30 @@ export class PrescriptionTableComponent implements OnInit {
   webMD(url) {
     window.open(url);
   }
+
+  trans(refill) {
+    let refill1 = Date.parse(refill);
+    return refill1;
+  }
+  /*
+  refillDue(refill) {
+    let refill1 = Date.parse(refill);
+    console.log(refill);
+    let pipe = new DatePipe('en-US');
+    let now = Date.now()
+    console.log(now);
+    let today = pipe.transform(now, 'shortDate');
+    let refill2 = Date.parse(today);
+
+    if(refill1 >= refill2){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }*/
+
+//Date.parse(prescription.refill) >= Date.parse(new DatePipe('en-US').transform(Date.now(), 'shortDate'))
+
+
 }
