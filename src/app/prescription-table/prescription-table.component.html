@@ -23,7 +23,7 @@
             <td>{{ prescription.quantity }}</td>
             <td>{{ prescription.vendor }}</td>
             <td>{{ prescription.price | currency }}</td>
-            <td>{{ prescription.refill | date:'shortDate' }}</td>
+            <td [ngStyle]="{'color': refillDue(prescription.refill) ? 'black' : 'red'} ">{{ prescription.refill | date:'shortDate': '+0000' }}</td>
             <td (click)="webMD(prescription.url)" class="url">{{ prescription.url }}</td>
             <div class= "example-screen">
               <td style="width: 10%"><a [routerLink]="['/edit/', prescription._id]" class="btn btn-primary">Edit</a></td>

@@ -16,6 +16,24 @@ import { DatePipe, CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/commo
 export class PrescriptionTableComponent implements OnInit {
   prescriptions: Prescription[];
 
+  refillDue(refill) {
+    let refill1 = Date.parse(refill);
+    console.log(refill);
+    let pipe = new DatePipe('en-US');
+    let now = Date.now()
+    console.log(now);
+    let today = pipe.transform(now, 'shortDate');
+    let refill2 = Date.parse(today);
+
+    if(refill1 >= refill2){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+
   user: FirebaseUserModel = new FirebaseUserModel();
 
   constructor(
@@ -52,5 +70,4 @@ export class PrescriptionTableComponent implements OnInit {
   webMD(url) {
     window.open(url);
   }
-  
 }
