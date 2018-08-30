@@ -85,4 +85,30 @@ export class AuthService {
       }
     });
   }
+
+  userHasEmail(email) {
+    return new Promise ((resolve, reject) => {
+      firebase.auth().fetchSignInMethodsForEmail(email)
+      .then(res => {
+        resolve(res);
+      }, err => reject(err))
+    })
+  }
+
+
+  resetPassword(email){
+    return new Promise((resolve, reject) => {
+      firebase.auth().sendPasswordResetEmail(email) 
+        .then(()=> {
+          resolve("email sent");
+        }, err => reject(err))
+      })
+    }
+/*
+  resetPassword(email: string) {
+    var auth = firebase.auth();
+    return auth.sendPasswordResetEmail(email)
+      .then(() => console.log("email sent"))
+      .catch((error) => console.log(error))
+  }*/
 }

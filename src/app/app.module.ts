@@ -31,6 +31,7 @@ import { UserService } from './core/user.service';
 import { rootRouterConfig } from './app.routes';
 import { HeaderComponent } from './header/header.component';
 import { DatePipe, CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/common';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { DatePipe, CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/commo
     RegisterComponent,
     UserComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    PasswordComponent
   ],
   
   providers: [DataService, AuthService, UserService, AuthGuard, UserResolver, PrescriptionFormResolver, PrescriptionTableResolver, EditResolver, DatePipe, CurrencyPipe, DecimalPipe, PercentPipe],
