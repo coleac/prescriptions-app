@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label class="col-md-4">Dosage</label>
                 <input type="text" class="form-control" name="dosage"
-                formControlName = "dosage" name = "dosage" #dosage>
+                    formControlName = "dosage" name = "dosage" #dosage required>
             </div>
             <div *ngIf="angForm.controls['dosage'].invalid && (angForm.controls['dosage'].dirty || 
                     angForm.controls['dosage'].touched)" class="alert alert-danger">
@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label class="col-md-4">Quantity</label>
                 <input type="number" class="form-control" name="quantity"
-                formControlName = "quantity" name = "quantity" #dosage>
+                formControlName = "quantity" name = "quantity" #dosage required>
             </div>
             <div *ngIf="angForm.controls['quantity'].invalid && (angForm.controls['quantity'].dirty || 
                         angForm.controls['quantity'].touched)" class="alert alert-danger">
@@ -52,7 +52,7 @@
             <div class="form-group">
                 <label class="col-md-4">Vendor</label>
                 <input type="text" class="form-control" name="vendor"
-                formControlName = "vendor" name = "vendor" #vendor>
+                formControlName = "vendor" name = "vendor" #vendor required>
             </div>
             <div *ngIf="angForm.controls['vendor'].invalid && (angForm.controls['vendor'].dirty || 
                     angForm.controls['vendor'].touched)" class="alert alert-danger">
@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label class="col-md-4">Price</label>
                 <input type="number" class="form-control" name="price" 
-                formControlName = "price" #price>
+                formControlName = "price" #price required>
             </div>
             <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || 
                     angForm.controls['price'].touched)" class="alert alert-danger">
@@ -76,7 +76,7 @@
             <div class="form-group">
                 <label class="col-md-4">Next Refill</label>
                 <input type="date" class="form-control" name="refill"
-                formControlName = "refill" name = "refill" #refill>
+                formControlName = "refill" name = "refill" #refill required>
             </div>
             <div *ngIf="angForm.controls['refill'].invalid && (angForm.controls['refill'].dirty || 
                     angForm.controls['refill'].touched)" class="alert alert-danger">
@@ -88,7 +88,7 @@
             <div class="form-group">
                 <label class="col-md-4">Medication Guide</label>
                 <input type="text" class="form-control" name="url" 
-                formControlName = "url" name = "url" #url> 
+                formControlName = "url" name = "url" #url required> 
                 Add WebMD Medication Guide URL: <a href="https://www.webmd.com/drugs/2/index" target="_blank">WebMD</a>
             </div>
             <div *ngIf="angForm.controls['url'].invalid && (angForm.controls['url'].dirty || 

@@ -53,7 +53,7 @@ export class EditComponent implements OnInit {
     }
 
     transformDate(date) {
-      return formatDate(date, 'yyyy-MM-dd', 'en');
+      return formatDate(date, 'yyyy-MM-dd', 'en', '+0000');
     }
 
     getPrescription() {
@@ -99,6 +99,7 @@ export class EditComponent implements OnInit {
     
     updatePrescription(email, rx, name, dosage, quantity, vendor, price, refill, url) {
       this.route.params.subscribe(params => {
+        console.log("edit: " + refill);
         this.dataService.updatePrescription(email, rx, name, dosage, quantity, vendor, price, refill, url, params['id']);
         
       setTimeout(() => {this.dataService
