@@ -1,6 +1,6 @@
 # MyPrescriptions
   ## A MEAN Project
-  ## Website: https://coleac.github.io/prescriptions-tracker
+  ## Website: https://coleac.github.io/prescriptions-tracker/index.html
   
   ## Login:
    ### *email:* test@gmail.com *pw:* test123
